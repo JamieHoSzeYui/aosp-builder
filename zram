@@ -1,7 +1,9 @@
 #!/bin/bash 
 
-swapon -p 9999999 /dev/zram0
-swapon -p 0 /dev/my-lvm-volume/swap
+sudo apt install zram-config
+cat /proc/swaps
+
+
 
 echo "" 
 echo "" 
