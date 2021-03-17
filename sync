@@ -14,3 +14,4 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 git clone https://github.com/henloscape/device_xiaomi_lava -b 11 device/xiaomi/lava 
 git clone https://github.com/Redmi-MT6768/android_vendor_xiaomi_lava vendor/xiaomi/lava 
 bash device/xiaomi/lava/vendorsetup.sh 
+
