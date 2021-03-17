@@ -2,7 +2,7 @@
 
 sudo mkdir /tmp/ramdisk
 sudo chmod -R 0777 /tmp/ramdisk/
-sudo mount -t tmpfs -o size=1000G myramdisk /tmp/ramdisk
+sudo mount -t tmpfs -o size=128G myramdisk /tmp/ramdisk
 
 echo "" 
 echo "" 
