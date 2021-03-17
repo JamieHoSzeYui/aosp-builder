@@ -47,6 +47,7 @@ make api-stubs-docs -j10
 make system-api-stubs-docs -j10
 make test-api-stubs-docs -j10
 
+export SELINUX_IGNORE_NEVERALLOWS=true
 make bacon -j10 \
 	&& send_zip=$(up out/target/product/mido/*zip) && tg $id "Build Succeed!
 $send_zip" \
