@@ -2,7 +2,7 @@
 
 sudo mkdir -p /media/ramdisk
 sudo chmod -R 0777 /media/ramdisk/
-sudo mount -t tmpfs -o ro size=2048M tmpfs /media/ramdisk
+sudo mount -t tmpfs -o loop size=2048M tmpfs /media/ramdisk
 
 echo "" 
 echo "" 
