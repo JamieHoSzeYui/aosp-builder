@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 sudo mkdir /mnt/ramdisk
-sudo mount -t tmpfs -o rw,size=1T tmpfs /mnt/ramdisk
+sudo mount -t tmpfs size=1T tmpfs /mnt/ramdisk
 
 echo "" 
 echo "" 
