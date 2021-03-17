@@ -1,8 +1,8 @@
 #!/bin/bash 
 
-sudo mkdir /tmp/ramdisk
+sudo mkdir -p /media/ramdisk
 sudo chmod -R 0777 /tmp/ramdisk/
-sudo mount -t tmpfs -o size=128G myramdisk /tmp/ramdisk
+sudo mount -t tmpfs -o size=2048M tmpfs /media/ramdisk
 
 echo "" 
 echo "" 
