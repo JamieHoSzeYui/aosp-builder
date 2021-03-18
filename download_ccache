@@ -12,3 +12,10 @@ cd /tmp # Where to download cccahe
 time aria2c $url -x16 -s50 # Using aria2c for speed haha, ccache will be at /tmp/ccache.tar.gz since my file name is ccache.tar.gz
 time tar xf ccache.tar.gz  # Extract ccache so ci can use it
 rm -rf ccache.tar.gz # Remove unnecessary downloaded file, it will speed up the upload ccache process
+
+# test 
+mkdir -p ~/.config/rclone
+echo "$rclone_config" > ~/.config/rclone/rclone.conf # Write rclone config found from env variable, so that cloud storage can be used to upload ccache
+touch lol.txt
+time rclone copy lol.txt gdrive:/ccache/ -P # apon is my rclone config name, ccache/ci2 is where ccache will be saved in my cloud, use yours one
+rm -rf ~/.config/rclone/rclone.conf
