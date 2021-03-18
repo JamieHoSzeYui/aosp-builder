@@ -48,8 +48,15 @@ make system-api-stubs-docs -j10
 make test-api-stubs-docs -j10
 
 export SELINUX_IGNORE_NEVERALLOWS=true
-make bacon -j10 \
-	&& send_zip=$(up out/target/product/mido/*zip) && tg $id "Build Succeed!
-$send_zip" \
-	|| tmate -S /tmp/tmate.sock new-session -d && tmate -S /tmp/tmate.sock wait tmate-ready && send_shell=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}') && tg $id "Build Failed" && tg $id "$send_shell" && ccache -s && sleep 2h
-ccache -s # Let's print ccache statistics finally
+echo "#!/bin/bash" >> bruh.sh
+echo "export SELINUX_IGNORE_NEVERALLOWS=true" >> bruh.sh 
+echo ". build/envsetup.sh" >> bruh.sh
+echo "lunch statix_lava-userdebug" >> bruh.sh
+echo "make bacon -j10" >> bruh.sh
+
+timeout -k 5400 bash bruh.sh 
+
+if [[ ($ls out/target/product/* | grep .zip) ]]; then 
+	cd out/target/product/*
+	curl --upload-file *.zip https://transfer.sh/
+fi
